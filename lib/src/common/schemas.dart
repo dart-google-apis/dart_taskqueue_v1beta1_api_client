@@ -3,25 +3,25 @@ part of taskqueue_v1beta1_api_client;
 class Task {
 
   /** Time (in seconds since the epoch) at which the task was enqueued. */
-  String enqueueTimestamp;
+  core.String enqueueTimestamp;
 
   /** Name of the task. */
-  String id;
+  core.String id;
 
   /** The kind of object returned, in this case set to task. */
-  String kind;
+  core.String kind;
 
   /** Time (in seconds since the epoch) at which the task lease will expire. This value is 0 if the task isnt currently leased out to a worker. */
-  String leaseTimestamp;
+  core.String leaseTimestamp;
 
   /** A bag of bytes which is the task payload. The payload on the JSON side is always Base64 encoded. */
-  String payloadBase64;
+  core.String payloadBase64;
 
   /** Name of the queue that the task is in. */
-  String queueName;
+  core.String queueName;
 
   /** Create new Task from JSON data */
-  Task.fromJson(Map json) {
+  Task.fromJson(core.Map json) {
     if (json.containsKey("enqueueTimestamp")) {
       enqueueTimestamp = json["enqueueTimestamp"];
     }
@@ -43,8 +43,8 @@ class Task {
   }
 
   /** Create JSON Object for Task */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (enqueueTimestamp != null) {
       output["enqueueTimestamp"] = enqueueTimestamp;
@@ -69,7 +69,7 @@ class Task {
   }
 
   /** Return String representation of Task */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -79,19 +79,19 @@ class TaskQueue {
   TaskQueueAcl acl;
 
   /** Name of the taskqueue. */
-  String id;
+  core.String id;
 
   /** The kind of REST object returned, in this case taskqueue. */
-  String kind;
+  core.String kind;
 
   /** The number of times we should lease out tasks before giving up on them. If unset we lease them out forever until a worker deletes the task. */
-  int maxLeases;
+  core.int maxLeases;
 
   /** Statistics for the TaskQueue object in question. */
   TaskQueueStats stats;
 
   /** Create new TaskQueue from JSON data */
-  TaskQueue.fromJson(Map json) {
+  TaskQueue.fromJson(core.Map json) {
     if (json.containsKey("acl")) {
       acl = new TaskQueueAcl.fromJson(json["acl"]);
     }
@@ -110,8 +110,8 @@ class TaskQueue {
   }
 
   /** Create JSON Object for TaskQueue */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (acl != null) {
       output["acl"] = acl.toJson();
@@ -133,7 +133,7 @@ class TaskQueue {
   }
 
   /** Return String representation of TaskQueue */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -141,16 +141,16 @@ class TaskQueue {
 class TaskQueueAcl {
 
   /** Email addresses of users who are "admins" of the TaskQueue. This means they can control the queue, eg set ACLs for the queue. */
-  List<String> adminEmails;
+  core.List<core.String> adminEmails;
 
   /** Email addresses of users who can "consume" tasks from the TaskQueue. This means they can Dequeue and Delete tasks from the queue. */
-  List<String> consumerEmails;
+  core.List<core.String> consumerEmails;
 
   /** Email addresses of users who can "produce" tasks into the TaskQueue. This means they can Insert tasks into the queue. */
-  List<String> producerEmails;
+  core.List<core.String> producerEmails;
 
   /** Create new TaskQueueAcl from JSON data */
-  TaskQueueAcl.fromJson(Map json) {
+  TaskQueueAcl.fromJson(core.Map json) {
     if (json.containsKey("adminEmails")) {
       adminEmails = [];
       json["adminEmails"].forEach((item) {
@@ -172,23 +172,23 @@ class TaskQueueAcl {
   }
 
   /** Create JSON Object for TaskQueueAcl */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (adminEmails != null) {
-      output["adminEmails"] = new List();
+      output["adminEmails"] = new core.List();
       adminEmails.forEach((item) {
         output["adminEmails"].add(item);
       });
     }
     if (consumerEmails != null) {
-      output["consumerEmails"] = new List();
+      output["consumerEmails"] = new core.List();
       consumerEmails.forEach((item) {
         output["consumerEmails"].add(item);
       });
     }
     if (producerEmails != null) {
-      output["producerEmails"] = new List();
+      output["producerEmails"] = new core.List();
       producerEmails.forEach((item) {
         output["producerEmails"].add(item);
       });
@@ -198,7 +198,7 @@ class TaskQueueAcl {
   }
 
   /** Return String representation of TaskQueueAcl */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -206,19 +206,19 @@ class TaskQueueAcl {
 class TaskQueueStats {
 
   /** Number of tasks leased in the last hour. */
-  String leasedLastHour;
+  core.String leasedLastHour;
 
   /** Number of tasks leased in the last minute. */
-  String leasedLastMinute;
+  core.String leasedLastMinute;
 
   /** The timestamp (in seconds since the epoch) of the oldest unfinished task. */
-  String oldestTask;
+  core.String oldestTask;
 
   /** Number of tasks in the queue. */
-  int totalTasks;
+  core.int totalTasks;
 
   /** Create new TaskQueueStats from JSON data */
-  TaskQueueStats.fromJson(Map json) {
+  TaskQueueStats.fromJson(core.Map json) {
     if (json.containsKey("leasedLastHour")) {
       leasedLastHour = json["leasedLastHour"];
     }
@@ -234,8 +234,8 @@ class TaskQueueStats {
   }
 
   /** Create JSON Object for TaskQueueStats */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (leasedLastHour != null) {
       output["leasedLastHour"] = leasedLastHour;
@@ -254,20 +254,20 @@ class TaskQueueStats {
   }
 
   /** Return String representation of TaskQueueStats */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class Tasks {
 
   /** The actual list of tasks returned as a result of the lease operation. */
-  List<Task> items;
+  core.List<Task> items;
 
   /** The kind of object returned, a list of tasks. */
-  String kind;
+  core.String kind;
 
   /** Create new Tasks from JSON data */
-  Tasks.fromJson(Map json) {
+  Tasks.fromJson(core.Map json) {
     if (json.containsKey("items")) {
       items = [];
       json["items"].forEach((item) {
@@ -280,11 +280,11 @@ class Tasks {
   }
 
   /** Create JSON Object for Tasks */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (items != null) {
-      output["items"] = new List();
+      output["items"] = new core.List();
       items.forEach((item) {
         output["items"].add(item.toJson());
       });
@@ -297,20 +297,20 @@ class Tasks {
   }
 
   /** Return String representation of Tasks */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class Tasks2 {
 
   /** The actual list of tasks currently active in the TaskQueue. */
-  List<Task> items;
+  core.List<Task> items;
 
   /** The kind of object returned, a list of tasks. */
-  String kind;
+  core.String kind;
 
   /** Create new Tasks2 from JSON data */
-  Tasks2.fromJson(Map json) {
+  Tasks2.fromJson(core.Map json) {
     if (json.containsKey("items")) {
       items = [];
       json["items"].forEach((item) {
@@ -323,11 +323,11 @@ class Tasks2 {
   }
 
   /** Create JSON Object for Tasks2 */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (items != null) {
-      output["items"] = new List();
+      output["items"] = new core.List();
       items.forEach((item) {
         output["items"].add(item.toJson());
       });
@@ -340,7 +340,7 @@ class Tasks2 {
   }
 
   /** Return String representation of Tasks2 */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
