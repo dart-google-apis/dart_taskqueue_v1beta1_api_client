@@ -1,8 +1,8 @@
 part of taskqueue_v1beta1_api_client;
 
-class TaskqueuesResource extends Resource {
+class TaskqueuesResource_ extends Resource {
 
-  TaskqueuesResource(Client client) : super(client) {
+  TaskqueuesResource_(Client client) : super(client) {
   }
 
   /**
@@ -37,7 +37,7 @@ class TaskqueuesResource extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new ArgumentError(paramErrors.join(" / ")));
+      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
       return completer.future;
     }
 
@@ -50,9 +50,9 @@ class TaskqueuesResource extends Resource {
   }
 }
 
-class TasksResource extends Resource {
+class TasksResource_ extends Resource {
 
-  TasksResource(Client client) : super(client) {
+  TasksResource_(Client client) : super(client) {
   }
 
   /**
@@ -88,7 +88,7 @@ class TasksResource extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new ArgumentError(paramErrors.join(" / ")));
+      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
       return completer.future;
     }
 
@@ -133,7 +133,7 @@ class TasksResource extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new ArgumentError(paramErrors.join(" / ")));
+      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
       return completer.future;
     }
 
@@ -182,7 +182,7 @@ class TasksResource extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new ArgumentError(paramErrors.join(" / ")));
+      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
       return completer.future;
     }
 
@@ -223,7 +223,7 @@ class TasksResource extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new ArgumentError(paramErrors.join(" / ")));
+      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
       return completer.future;
     }
 
